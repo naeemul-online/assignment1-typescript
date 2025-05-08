@@ -1,4 +1,4 @@
-# Interfaces vs Types in TypeScript: Key Differences
+# Blog-1: Interfaces vs Types in TypeScript: Key Differences
 
 TypeScript, a superset of JavaScript, provides robust tools for defining the shape of data: **interfaces** and **types**. While both are used to describe object structures and enforce type safety, they have distinct characteristics that make them suitable for different scenarios. This blog explores the key differences between interfaces and types in TypeScript, helping developers choose the right tool for their needs.
 
@@ -116,3 +116,103 @@ In many TypeScript projects, **interfaces** are preferred for defining object sh
 ## Conclusion
 
 Both **interfaces** and **types** are powerful tools in TypeScript, and understanding their differences allows developers to write more maintainable and type-safe code. Interfaces shine in scenarios requiring extensibility and object-oriented design, while types offer unmatched flexibility for complex type definitions. By choosing the right tool based on your project’s needs, you can leverage TypeScript’s full potential to build robust applications.
+
+
+
+# Blog 2: Understanding any, unknown, and never in TypeScript
+
+## Introduction
+
+TypeScript’s type system helps catch errors before runtime. But sometimes, you need flexibility—or strictness. That’s where `any`, `unknown`, and `never` come in.
+
+This guide explains when and why to use each.
+
+## 1. `any` – The Escape Hatch
+
+### What It Does
+
+Opts out of type checking (like plain JavaScript).
+
+**Use sparingly**—it defeats TypeScript’s safety.
+
+```ts
+let data: any = "hello";
+data = 42; // No error
+data.toUpperCase(); // No error (but crashes at runtime!)
+```
+
+### When to Use:
+
+* Migrating JS to TS gradually.
+* Working with dynamic data (e.g., third-party APIs).
+
+**Risk**: Loses all type safety.
+
+## 2. `unknown` – The Safe Alternative
+
+### What It Does
+
+Forces type checking before use (unlike `any`).
+
+Safer for dynamic data (e.g., JSON parsing).
+
+```ts
+let userInput: unknown = fetchExternalData();
+// userInput.toUpperCase(); ❌ Error: Must narrow type first
+
+if (typeof userInput === "string") {
+  console.log(userInput.toUpperCase()); // ✅ Safe
+}
+```
+
+### When to Use:
+
+* Parsing unknown data (APIs, user input).
+* Replacing `any` for better safety.
+
+**Key Benefit**: Ensures runtime checks before operations.
+
+## 3. `never` – The Unreachable Type
+
+### What It Does
+
+Represents code that should never run (e.g., errors, infinite loops).
+
+Helps with exhaustive type checking.
+
+```ts
+function crashApp(message: string): never {
+  throw new Error(message); // Function never returns
+}
+
+type Status = "success" | "error";
+function handleStatus(status: Status) {
+  switch (status) {
+    case "success": return "Done!";
+    case "error": return "Failed!";
+    default: 
+      const exhaustiveCheck: never = status; // Ensures all cases are handled
+      return exhaustiveCheck;
+  }
+}
+```
+
+### When to Use:
+
+* Functions that never return (e.g., throw).
+* Ensuring all cases are handled in a `switch`.
+
+## Comparison Table
+
+| Type      | Purpose                      | Safety | Example Use Case           |
+| --------- | ---------------------------- | ------ | -------------------------- |
+| `any`     | Opt-out of type checking     | ❌ None | Legacy JS migration        |
+| `unknown` | Force type checks before use | ✅ High | Parsing JSON/API responses |
+| `never`   | Mark unreachable code        | ✅ Full | Exhaustive checks, errors  |
+
+## Conclusion
+
+* **Avoid `any`**—it removes TypeScript’s benefits.
+* **Prefer `unknown`** for dynamic data.
+* **Use `never`** for impossible states and strict checks.
+
