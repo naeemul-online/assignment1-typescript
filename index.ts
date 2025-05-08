@@ -8,7 +8,6 @@ function formatString(input1: string, input2?: boolean): string {
 const res1 = formatString("Hello");
 const res2 = formatString("Hello", true);
 const res3 = formatString("Hello", false);
-// console.log(res1, res2, res3)
 
 const books = [
   { title: "Book A", rating: 4.5 },
@@ -25,7 +24,6 @@ function filterByRating(items: Books[]): { title: string; rating: number }[] {
 }
 
 const filteredBooks = filterByRating(books);
-// console.log(filteredBooks)
 
 function concatenateArrays<T>(...arrays: T[][]): T[] {
   const result: T[] = [];
@@ -37,10 +35,6 @@ function concatenateArrays<T>(...arrays: T[][]): T[] {
 
 const resultOfConcatArray = concatenateArrays([1, 2], [3, 4]);
 const resultOfConcatArray2 = concatenateArrays(["a", "b"], ["c"]);
-// console.log(resultOfConcatArray2)
-
-// Create a Vehicle class with private make and year properties and a getInfo() method.
-// Create a Car class extending Vehicle, adding a private model property and a getModel() method.
 
 class Vehicle {
   constructor(private make: string, private year: number) {
@@ -65,17 +59,12 @@ class Car extends Vehicle {
 
 const myCar = new Car("Toyota", 2020, "Corolla");
 
-// console.log(myCar.getInfo());
-// console.log(myCar.getModel());
-
 function processValue(value: string | number): number {
   return typeof value === "string" ? value.length : value * 2;
 }
 
 const resultProcessNumber = processValue("hello");
 const resultProcessNumber2 = processValue(10);
-// console.log(resultProcessNumber)
-// console.log(resultProcessNumber2)
 
 interface Product {
   name: string;
@@ -104,7 +93,6 @@ const products = [
 ];
 
 const mostExpensiveProduct = getMostExpensiveProduct(products);
-// console.log(mostExpensiveProduct);
 
 enum Day {
   Monday,
@@ -125,7 +113,19 @@ function getDayType(day: Day): string {
 }
 
 const resultDay1 = getDayType(Day.Saturday);
-const resultDay2 = getDayType(Day.Friday);   
+const resultDay2 = getDayType(Day.Friday);
 
-// console.log(resultDay1)
-// console.log(resultDay2)
+async function squareAsync(n: number): Promise<number> {
+  return new Promise((resolve, reject) => {
+    setInterval(() => {
+      if (n < 0) {
+        reject(new Error("Negative number not allowed"));
+      } else {
+        resolve(n * n);
+      }
+    }, 1000);
+  });
+}
+
+squareAsync(4).then(console.log);
+squareAsync(-3).catch(console.error);
