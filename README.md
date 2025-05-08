@@ -243,5 +243,3 @@ function handleStatus(status: Status) {
 * **Avoid `any`**—it removes TypeScript’s benefits.
 * **Prefer `unknown`** for dynamic data.
 * **Use `never`** for impossible states and strict checks.
-
-Stay tuned for the next blog in this series!
