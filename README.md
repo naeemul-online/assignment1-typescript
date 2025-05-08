@@ -1,30 +1,30 @@
-# Assignment
-
+# Assignment1
 
 ## Files Included
 
-- `index.ts`: Contains all the TypeScript code demonstrating various features and use cases.
-- `README.md`: Project overview and documentation.
+- `index.ts`: Contains all the TypeScript code 
+- `README.md`: Assignment Tasks and Blog1 and Blog2.
 
 ## How to Run
 
 1. Make sure you have [Node.js](https://nodejs.org/) and [TypeScript](https://www.typescriptlang.org/) installed globally.
 2. Clone the repository:
-   ```bash
+   
+```bash
    git clone https://github.com/your-username/your-repo-name.git
    cd your-repo-name
 ````
 
-3. Compile the TypeScript file:
+1. Compile the TypeScript file:
 
-   ```bash
+```bash
    tsc index.ts
-   ```
+```
 4. Run the compiled JavaScript:
-
-   ```bash
+   
+```bash
    node index.js
-   ```
+```
 
 # Blog-1: Interfaces vs Types in TypeScript: Key Differences
 
@@ -244,3 +244,4 @@ function handleStatus(status: Status) {
 * **Prefer `unknown`** for dynamic data.
 * **Use `never`** for impossible states and strict checks.
 
+Stay tuned for the next blog in this series!
