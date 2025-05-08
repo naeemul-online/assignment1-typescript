@@ -1,3 +1,31 @@
+# Assignment
+
+
+## Files Included
+
+- `index.ts`: Contains all the TypeScript code demonstrating various features and use cases.
+- `README.md`: Project overview and documentation.
+
+## How to Run
+
+1. Make sure you have [Node.js](https://nodejs.org/) and [TypeScript](https://www.typescriptlang.org/) installed globally.
+2. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+````
+
+3. Compile the TypeScript file:
+
+   ```bash
+   tsc index.ts
+   ```
+4. Run the compiled JavaScript:
+
+   ```bash
+   node index.js
+   ```
+
 # Blog-1: Interfaces vs Types in TypeScript: Key Differences
 
 TypeScript, a superset of JavaScript, provides robust tools for defining the shape of data: **interfaces** and **types**. While both are used to describe object structures and enforce type safety, they have distinct characteristics that make them suitable for different scenarios. This blog explores the key differences between interfaces and types in TypeScript, helping developers choose the right tool for their needs.
